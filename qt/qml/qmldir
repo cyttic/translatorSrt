@@ -1,0 +1,31 @@
+module App
+
+# Singletons
+singleton Theme 1.0 Theme.qml
+
+# Main
+Main 1.0 Main.qml
+StagesModel 1.0 StagesModel.qml
+LogModel 1.0 LogModel.qml
+
+# Components
+Spinner 1.0 components/Spinner.qml
+PrimaryButton 1.0 components/PrimaryButton.qml
+GhostButton 1.0 components/GhostButton.qml
+IconButton 1.0 components/IconButton.qml
+Segmented 1.0 components/Segmented.qml
+FileChip 1.0 components/FileChip.qml
+Toolbar 1.0 components/Toolbar.qml
+PipelineChain 1.0 components/PipelineChain.qml
+StageCard 1.0 components/StageCard.qml
+Connector 1.0 components/Connector.qml
+OverallStrip 1.0 components/OverallStrip.qml
+SettingsInspector 1.0 components/SettingsInspector.qml
+SettingsSection 1.0 components/SettingsSection.qml
+Field 1.0 components/Field.qml
+AppSlider 1.0 components/AppSlider.qml
+AppToggle 1.0 components/AppToggle.qml
+AppSelect 1.0 components/AppSelect.qml
+AppTextField 1.0 components/AppTextField.qml
+Terminal 1.0 components/Terminal.qml
+StageIcon 1.0 components/StageIcon.qml

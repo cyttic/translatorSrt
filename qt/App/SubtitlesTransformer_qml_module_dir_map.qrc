@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="/">
+    <file alias="/qt/qml/App">/home/cyttic/test/translatorSrt/qt/App</file>
+
+  </qresource>
+</RCC>

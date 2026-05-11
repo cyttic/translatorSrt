@@ -1,2 +1,22 @@
 *.mp4
 *.srt
+
+# Qt build
+qt/build/
+qt/CMakeCache.txt
+qt/CMakeFiles/
+qt/cmake_install.cmake
+qt/Makefile
+qt/.cmake/
+qt/.qt/
+qt/.qt_plugins/
+qt/.rcc/
+qt/.generated/
+qt/.qtc_clangd/
+qt/.qtcreator/
+qt/meta_types/
+qt/qmltypes/
+qt/SubtitlesTransformer
+qt/SubtitlesTransformer_autogen/
+qt/subtitlestransformer_qmltyperegistrations.cpp
+qt/App/qmldir

@@ -1,0 +1,80 @@
+// StagesModel.qml — the canonical 4-stage pipeline with live status.
+// Replace the timer-based simulation with real backend signals.
+import QtQuick
+
+ListModel {
+    id: stages
+
+    // Status enum kept as plain strings: "idle" | "active" | "done" | "error"
+    ListElement {
+        stageId: "extract"
+        name:    "Extract Audio"
+        sub:     "ffmpeg · demux"
+        icon:    "audio"
+        status:  "done"
+        progress: 1.0
+        elapsedText: "00:00:14"
+    }
+    ListElement {
+        stageId: "transcribe"
+        name:    "Transcribe"
+        sub:     "whisper.cpp · large-v3"
+        icon:    "text"
+        status:  "done"
+        progress: 1.0
+        elapsedText: "00:02:08"
+    }
+    ListElement {
+        stageId: "translate"
+        name:    "Translate (AI)"
+        sub:     "gpt-4o · target ru-RU"
+        icon:    "translate"
+        status:  "active"
+        progress: 0.64
+        elapsedText: "ETA 02:14"
+    }
+    ListElement {
+        stageId: "mux"
+        name:    "Mux Subtitles"
+        sub:     "ffmpeg · softsub"
+        icon:    "mux"
+        status:  "idle"
+        progress: 0.0
+        elapsedText: ""
+    }
+
+    // Demo: animate the active stage's progress.
+    // Wire your backend signals into setProperty(...) calls instead.
+    // Timer {
+    //     interval: 600
+    //     repeat: true
+    //     running: true
+    //     onTriggered: {
+    //         for (var i = 0; i < stages.count; ++i) {
+    //             var s = stages.get(i)
+    //             if (s.status === "active") {
+    //                 var p = Math.min(0.999, s.progress + 0.005)
+    //                 stages.setProperty(i, "progress", p)
+    //                 if (p >= 0.999) {
+    //                     stages.setProperty(i, "status", "done")
+    //                     stages.setProperty(i, "progress", 1.0)
+    //                     stages.setProperty(i, "elapsedText", "00:05:18")
+    //                     if (i + 1 < stages.count) {
+    //                         stages.setProperty(i+1, "status", "active")
+    //                         stages.setProperty(i+1, "elapsedText", "ETA 00:42")
+    //                     }
+    //                 }
+    //                 break
+    //             }
+    //         }
+    //     }
+    // }
+
+
+    // Overall progress: equal weights across stages.
+    function overall() {
+        var sum = 0.0
+        for (var i = 0; i < count; ++i) sum += get(i).progress
+        return sum / count
+    }
+}
